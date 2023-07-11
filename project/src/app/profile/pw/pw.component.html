@@ -1,0 +1,26 @@
+<form #pws="ngForm" (ngSubmit)="changePw(pws.value)" >
+<ol style="list-style-type: none;">
+    <li>
+    <mat-form-field appearance="outline"  >
+        <mat-label>Mot de passe</mat-label>
+        <input matInput ngModel required="true" name="oldPassword" type="password" >
+    </mat-form-field>
+</li>
+<li>
+    <mat-form-field appearance="outline">
+        <mat-label>Nouvelle mot de passe</mat-label>
+        <input matInput ngModel required="true" name="newPassword" type="password" >
+        
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Confirmer nouvelle mot de passe</mat-label>
+        <input matInput ngModel required="true" name="newPasswordConfirm" type="password" >
+    </mat-form-field>
+</li>
+<li>
+        <button mat-raised-button color="warn" type="button" (click)="closeDialog()" ><mat-label style="font-size: 18px;">Annuler</mat-label></button>
+        <button mat-raised-button color="primary" type="submit" ><mat-label style="font-size: 18px;">Valider</mat-label></button>
+    </li>
+</ol>    
+</form>

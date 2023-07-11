@@ -1,0 +1,63 @@
+<form  #updatedUser="ngForm"  (ngSubmit)="onClickSubmit(updatedUser.value)">
+    <ol style="list-style-type: none;">
+        <li>
+        <h1 mat-dialog-title>Mettre a jour</h1>
+    </li>
+    <mat-divider></mat-divider>
+
+    <li>
+    <mat-label style="font-size: 20px;" name="id" ngModel="{{data.selectedUser.id}}">ID# {{data.selectedUser.id}}</mat-label>
+    </li>
+        <li>
+    <mat-form-field appearance="outline">
+        <mat-label>Nom d'utilisateur</mat-label>
+        <input matInput ngModel="{{data.selectedUser.username}}" required="true" name="username" type="text">
+      </mat-form-field>
+    </li>
+        <li>
+        <mat-form-field appearance="outline">
+            <mat-label>Nom</mat-label>
+            <input matInput ngModel="{{data.selectedUser.last_name}}" required="true" name="last_name" type="text">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" >
+            <mat-label>Prénom</mat-label>
+            <input matInput ngModel="{{data.selectedUser.name}}" required="true" name="name" type="text">
+          </mat-form-field>
+        </li>
+            <li>
+        <mat-form-field appearance="outline" style="width: 300px;">
+            <mat-label>Email</mat-label>
+            <input matInput ngModel="{{data.selectedUser.email}}" type="email" required="true" name="email" >
+          </mat-form-field>
+        </li>
+        <li>
+            <mat-form-field appearance="outline"  >
+                <mat-label>Port</mat-label>
+                <mat-select  [(value)]="selected" name="port" [(ngModel)]="selected">
+                    <mat-option value="1" >PORT DE LA GOULETTE</mat-option>
+                    <mat-option value="3" >PORT DE BIZERTE</mat-option>
+                    <mat-option value="4" >PORT DE SOUSSE</mat-option>
+                    <mat-option value="5" >PORT DE SFAX</mat-option>
+                    <mat-option value="6" >PORT DE GABES</mat-option>
+                    <mat-option value="7" >PORT DE  RADES</mat-option>
+                    <mat-option value="8" >PORT DE ZARZIS</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </li>
+            <li>
+        <mat-slide-toggle color="primary" [ngModel]="data.selectedUser.role==1"  labelPosition="before" name="role"  >
+            <mat-label>Admin</mat-label>
+        </mat-slide-toggle>
+
+        <mat-slide-toggle color="primary" [ngModel]="data.selectedUser.enabled==1"  labelPosition="before"  name="enabled">
+            <mat-label style="margin-left: 8px;">Activée</mat-label>
+        </mat-slide-toggle>
+
+    </li>
+    <li>
+        <button mat-raised-button color="warn" type="button" (click)="onNoClick()"><mat-label style="font-size: 18px;">Annuler</mat-label></button>
+        <button mat-raised-button color="primary" type="submit"><mat-label style="font-size: 18px;">Valider</mat-label></button>
+    </li>
+</ol>
+</form>

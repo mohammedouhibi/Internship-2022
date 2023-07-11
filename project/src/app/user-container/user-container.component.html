@@ -1,0 +1,46 @@
+<div style="margin-left: auto;margin-right: auto; width: 80%; height: auto; margin-top: 20px; position: center;">
+<div class="container">
+    <mat-card>
+        <button mat-fab color="primary" (click)="openAddDialog()" matTooltip="nouvel utilisateur" style="right:0%">
+            <mat-icon style="transform: scale(1.5)">
+                add
+            </mat-icon>
+        </button>
+    </mat-card>
+
+    <mat-card>
+    <table class="table table-striped">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <thead>
+    <tr>
+        <th scope="col">ID</th><th scope="col">Nom d'utilisateur</th><th scope="col">Nom</th><th scope="col">Prénom</th><th scope="col">Email</th><th scope="col">Admin</th><th scope="col">Active</th><th scope="col">Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of allUsers">
+        <td scope="row">{{user.id}}</td>
+        <td >{{user.username}}</td>
+        <td >{{user.last_name}}</td>
+        <td >{{user.name}}</td>
+        <td >{{user.email}}</td>
+        <td >
+            <mat-icon style="color:green" *ngIf="user.role" >check_circle</mat-icon>   
+            <mat-icon color="warn" *ngIf="!user.role" >cancel</mat-icon>
+        </td>
+        <td >
+            <mat-icon style="color:green" *ngIf="user.enabled" >check_circle</mat-icon>   
+            <mat-icon color="warn" *ngIf="!user.enabled" >cancel</mat-icon>
+        </td>
+        <td >
+            <button style="border:none; background:none;" (click)="openDialog(user)" matTooltip="modifier"><mat-icon color="primary">edit</mat-icon></button>
+            <button style="border:none; background:none;margin-left: 5px;" (click)="openDeleteDialog(user)" matTooltip="supprimer"><mat-icon color="warn" style="margin-left: 5px;">delete</mat-icon></button>
+            <button style="border:none; background:none;" (click)="openPasswordDialog(user.id)" matTooltip="modifier mot de passe"><mat-icon style="color:green">shield</mat-icon></button>
+        </td>
+    </tr>
+</tbody>
+    </table>
+</mat-card>
+</div> 
+</div>
+

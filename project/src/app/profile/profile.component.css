@@ -1,0 +1,33 @@
+mat-card{
+    margin-left: auto;
+    margin-right: auto; 
+    width: 80%; 
+    height: auto; 
+    margin-top: 20px; 
+    position: center;
+}
+
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+   .mat-form-field + .mat-form-field {
+    margin: 10px;
+  }
+   .mat-slide-toggle {
+    margin-left: 8px;
+  }
+
+   .mat-slide-toggle{
+    color: black;
+  }
+
+  li{
+    margin: 15px 0;
+  }
+
+  button{
+    margin: 20px;
+  }

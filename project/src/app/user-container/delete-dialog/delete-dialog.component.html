@@ -1,0 +1,7 @@
+<p><h1 mat-dialog-title style="text-align: center;">Supprimer l'utilisateur {{data.selectedUser.username}}?</h1>
+
+<p>
+    <button mat-raised-button color="warn" type="submit" (click)="onClickSubmit(data.selectedUser.id)"><mat-label style="font-size: 18px;">Supprimer</mat-label></button>
+    <button mat-raised-button color="primary" type="button" (click)="onNoClick()"><mat-label style="font-size: 18px;">Annuler</mat-label></button>
+    
+</p>

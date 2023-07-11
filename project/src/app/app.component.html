@@ -1,0 +1,8 @@
+
+<div class="container-fluid" *ngIf="authentcationService.authenticated">
+<app-navbar style="margin-left: 0px;margin-right: 0px;"></app-navbar>
+<router-outlet></router-outlet>
+</div>
+<div *ngIf="!authentcationService.authenticated" class="login">  
+<app-login></app-login>
+</div>

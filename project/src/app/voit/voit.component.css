@@ -1,0 +1,24 @@
+mat-card{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .container .mat-form-field + .mat-form-field {
+    margin: 20px;
+  }
+  
+
+  li{
+    margin: 15px;
+  }
+
+  
+  button{
+    margin: 20px;
+  }
+

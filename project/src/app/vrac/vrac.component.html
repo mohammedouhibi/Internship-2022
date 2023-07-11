@@ -1,0 +1,48 @@
+<div style="margin-left: auto;
+margin-right: auto;">
+<mat-card>
+<div style="position: center;">
+    <form #search="ngForm" (ngSubmit)="onClickSubmit(search.value)">
+        <mat-form-field appearance="fill">
+            <mat-label>Selectionner un intervalle</mat-label>
+            <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+              <input matStartDate formControlName="start" placeholder="Date debut">
+              <input matEndDate formControlName="end" placeholder="Date fin">
+            </mat-date-range-input>
+            <mat-hint>JJ/MM/YYYY – JJ/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          
+            <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Date debut invalide</mat-error>
+            <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Date fin invalide</mat-error>
+        </mat-form-field>
+            <mat-form-field appearance="outline" name="port" class="formcomponent">
+                <mat-label>Port</mat-label>
+                <mat-select [(ngModel)]="selected" [(value)]="selected" name="port" id="port">
+                  <mat-option value="1" >PORT DE LA GOULETTE</mat-option>
+                  <mat-option value="3" >PORT DE BIZERTE</mat-option>
+                  <mat-option value="4" >PORT DE SOUSSE</mat-option>
+                  <mat-option value="5" >PORT DE SFAX</mat-option>
+                  <mat-option value="6" >PORT DE GABES</mat-option>
+                  <mat-option value="7" >PORT DE  RADES</mat-option>
+                  <mat-option value="8" >PORT DE ZARZIS</mat-option>
+                </mat-select>
+            </mat-form-field> 
+            
+        <button mat-raised-button color="primary" type="submit"><mat-label style="font-size: 18px;">Valider</mat-label></button>
+    </form>
+    <p style="color:red" *ngIf="this.error==true;">verifier vos parametres de recherche</p>
+</div>
+</mat-card>
+ 
+<mat-card *ngIf="searched==true">
+    <table class="table table-striped">
+    
+    <tbody>
+        <tr *ngFor="let row of tab">
+            <th>{{row[0]}}</th><td>{{row[1]}}</td><td>{{row[2]}}</td>
+        </tr>
+    </tbody>
+    </table>
+</mat-card>
+</div>

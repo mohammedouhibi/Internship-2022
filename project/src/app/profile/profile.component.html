@@ -1,0 +1,49 @@
+<mat-card>
+
+<form  #updatedUser="ngForm"  (ngSubmit)="onClickSubmit(updatedUser.value)">
+    <ol style="list-style-type: none;">
+        <li>
+        <h1 >Profile</h1>
+    </li>  
+    <mat-divider></mat-divider>
+    
+   
+        <li>
+    <mat-form-field appearance="outline">
+        <mat-label>Nom d'utilisateur</mat-label>
+        <input matInput ngModel="{{this.authenticationService.currentUser.username}}" required="true" name="username" type="text" disabled="{{!this.mode}}">
+      </mat-form-field>
+    </li>
+        <li>
+        <mat-form-field appearance="outline">
+            <mat-label>Nom</mat-label>
+            <input matInput ngModel="{{this.authenticationService.currentUser.last_name}}" required="true" name="last_name" type="text"  disabled="{{!this.mode}}">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" >
+            <mat-label>Prénom</mat-label>
+            <input matInput ngModel="{{this.authenticationService.currentUser.name}}" required="true" name="name" type="text"  disabled="{{!this.mode}}">
+          </mat-form-field>
+        </li>
+            <li>
+        <mat-form-field appearance="outline" style="width: 300px;">
+            <mat-label>Email</mat-label>
+            <input matInput ngModel="{{this.authenticationService.currentUser.email}}" type="email" required="true" name="email"  disabled="{{!this.mode}}">
+          </mat-form-field>
+        </li>
+        <li *ngIf="mode==true">
+            <mat-form-field appearance="outline" style="width: 300px;">
+                <mat-label>Confirmer mot de passe</mat-label>
+                <input matInput ngModel type="password" required="true" name="password"  disabled="{{!this.mode}}">
+              </mat-form-field>
+            </li>
+        
+    <li>
+        <button mat-raised-button color="warn" type="button" (click)="this.mode=true" *ngIf="this.mode==false"><mat-label style="font-size: 18px;">Modifier</mat-label></button>
+        <button mat-raised-button color="warn" type="button" (click)="this.mode=false" *ngIf="this.mode==true"><mat-label style="font-size: 18px;">Annuler</mat-label></button>
+        <button mat-raised-button color="primary" type="submit" *ngIf="this.mode==true"><mat-label style="font-size: 18px;">Valider</mat-label></button>
+    </li>
+</ol>
+<mat-label (click)="passwordDialog()" Style="color:darkslateblue; cursor: pointer; margin-left: 18px;">Changer mot de passe</mat-label>
+</form>
+</mat-card>

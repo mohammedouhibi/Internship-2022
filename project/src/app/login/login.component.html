@@ -1,0 +1,18 @@
+
+   
+    <div class="container">
+        <form class="form-signin" >
+          <h2 class="form-signin-heading">Authentification</h2>
+          <p>
+            <label for="username" class="sr-only">Nom d'utilisateur</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Nom d'utilisateur" required=""  autofocus="" [(ngModel)]="username">
+          </p>
+          <p>
+            <label for="password" class="sr-only">Mot de passe</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="" [(ngModel)]="password" >
+          </p>
+        <p style="color:crimson" *ngIf="this.error">Nom d'tilisateur ou mot de passe incorrect</p>
+          <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="login()" >Sign in</button>
+        </form>
+  </div>
+
